@@ -98,9 +98,36 @@
       <label for="used_system">Art des verwendeten Geräts (optional):</label>
       <p>
         Geben Sie das Gerät an, auf dem der Fehler aufgetreten ist (z.B. Laptop, Tablet). Auch den Verwendeten Browser
-        und das Betriebssystem können Sie hier angeben.
+        können Sie hier angeben.
       </p>
       <input type="text" name="used_system" />
+
+      <label for="used_os">Verwendetes Betriebssystem:</label>
+      <p>Geben Sie das Betriebssystem an, auf dem der Fehler aufgetreten ist.</p>
+      <select name="used_os">
+        <option value="Windows">Windows</option>
+        <option value="MacOS">MacOS</option>
+        <option value="Linux">Linux</option>
+        <option value="Android">Android</option>
+        <option value="iOS">iOS</option>
+        <option value="Nicht_bekannt" selected>Nicht bekannt</option>
+      </select>
+
+      <label for="touch">Wurde Touch-Eingabe verwendet?</label>
+      <p>Wurde der Fehler mit einem Touchscreen-Gerät produziert?</p>
+      <input type="radio" name="touch" value="Ja" />Ja<br />
+      <input type="radio" name="touch" value="Nein" />Nein<br />
+      <input type="radio" name="touch" value="Nicht_bekannt" checked />Nicht bekannt<br />
+      <br />
+
+      <!-- Art der Internetverbindung radio -->
+      <label for="connection">Art der Internetverbindung:</label>
+      <p>Wählen Sie die Art der Internetverbindung aus, die zum Zeitpunkt des Fehlers verwendet wurde.</p>
+      <input type="radio" name="connection" value="LAN" />LAN<br />
+      <input type="radio" name="connection" value="WLAN" />WLAN<br />
+      <input type="radio" name="connection" value="Mobilfunk" />Mobilfunk<br />
+      <input type="radio" name="connection" value="Nicht_bekannt" checked />Nicht bekannt<br />
+      <br />
 
       <label for="info">Weiterführende Informationen (optional):</label>
       <p>

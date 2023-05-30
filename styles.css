@@ -24,6 +24,7 @@ label {
 }
 
 input[type='text'],
+select,
 input[type='email'],
 textarea {
   width: 100%;
