@@ -7,6 +7,7 @@ h1 {
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  font-weight: 900;
 }
 
 form {
@@ -21,6 +22,9 @@ form {
 label {
   display: block;
   margin-bottom: 5px;
+  padding: 0.6rem 0;
+  font-size: 1.2rem;
+  font-weight: 900;
 }
 
 input[type='text'],
