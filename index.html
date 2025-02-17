@@ -4,33 +4,33 @@
     <title>Bug Report</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="icon" type="image/png" href="assets/adlerlogo.png">
+    <link rel="icon" type="image/png" href="assets/adlerlogo.png" />
     <script>
       function showAlertWindow(message) {
-        const alertWindow = document.createElement('div');
-        alertWindow.style.position = 'fixed';
-        alertWindow.style.top = '50%';
-        alertWindow.style.left = '50%';
-        alertWindow.style.transform = 'translate(-50%, -50%)';
-        alertWindow.style.padding = '20px';
-        alertWindow.style.backgroundColor = '#45a0e5';
-        alertWindow.style.color = 'white';
-        alertWindow.style.borderRadius = '5px';
-        alertWindow.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-        alertWindow.style.fontSize = '1.2em';
-        alertWindow.style.textAlign = 'center';
+        const alertWindow = document.createElement("div");
+        alertWindow.style.position = "fixed";
+        alertWindow.style.top = "50%";
+        alertWindow.style.left = "50%";
+        alertWindow.style.transform = "translate(-50%, -50%)";
+        alertWindow.style.padding = "20px";
+        alertWindow.style.backgroundColor = "#45a0e5";
+        alertWindow.style.color = "white";
+        alertWindow.style.borderRadius = "5px";
+        alertWindow.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+        alertWindow.style.fontSize = "1.2em";
+        alertWindow.style.textAlign = "center";
         alertWindow.textContent = message;
 
-        const closeButton = document.createElement('button');
-        closeButton.style.marginTop = '10px';
-        closeButton.style.padding = '5px 10px';
-        closeButton.style.borderRadius = '3px';
-        closeButton.style.border = 'none';
-        closeButton.style.backgroundColor = '#ffffff';
-        closeButton.style.color = '#45a0e5';
-        closeButton.textContent = 'Close';
+        const closeButton = document.createElement("button");
+        closeButton.style.marginTop = "10px";
+        closeButton.style.padding = "5px 10px";
+        closeButton.style.borderRadius = "3px";
+        closeButton.style.border = "none";
+        closeButton.style.backgroundColor = "#ffffff";
+        closeButton.style.color = "#45a0e5";
+        closeButton.textContent = "Close";
 
-        closeButton.addEventListener('click', () => {
+        closeButton.addEventListener("click", () => {
           document.body.removeChild(alertWindow);
         });
 
@@ -41,18 +41,20 @@
       function submitBugReport(event) {
         event.preventDefault();
 
-        const formData = new FormData(document.getElementById('bugReportForm'));
-        fetch('submit_bug_report.php', {
-          method: 'POST',
+        const formData = new FormData(document.getElementById("bugReportForm"));
+        fetch("submit_bug_report.php", {
+          method: "POST",
           body: formData,
         })
           .then((response) => response.text())
           .then((result) => {
-            showAlertWindow('Danke für das Feedback!\n Sie können dieses Fenster jetzt schließen.');
+            showAlertWindow(
+              "Danke für das Feedback!\n Sie können dieses Fenster jetzt schließen."
+            );
           })
           .catch((error) => {
-            console.error('Error:', error);
-            showAlertWindow('Error submitting bug report');
+            console.error("Error:", error);
+            showAlertWindow("Error submitting bug report");
           });
       }
     </script>
@@ -63,26 +65,35 @@
 
       <form id="bugReportForm" onsubmit="submitBugReport(event)">
         <p>
-          Bitte nutzen Sie dieses Formular um uns über Fehler in der AdLer 3D-Umgebung, dem Autorentool oder Moodle zu
-          informieren.
+          Bitte nutzen Sie dieses Formular um uns über Fehler in der AdLer
+          3D-Umgebung, dem Autorentool oder Moodle zu informieren.
           <br />
           <br />
-          Wir werden uns dann schnellstmöglich um das Problem kümmern. Sollten Sie explizit eine Antwort erwarten, sobald
-          der Fehler behoben wurde, geben Sie dies bitte im Feld "Weiterführende Informationen" an und hinterlassen Sie
-          Ihre E-Mail-Adresse.
+          Wir werden uns dann schnellstmöglich um das Problem kümmern. Sollten
+          Sie explizit eine Antwort erwarten, sobald der Fehler behoben wurde,
+          geben Sie dies bitte im Feld "Weiterführende Informationen" an und
+          hinterlassen Sie Ihre E-Mail-Adresse.
           <br />
           <br />
-          Sollte Ihnen dieses Formaular nicht ausreichen, können Sie uns auch eine E-Mail an
-          <a href="mailto:philipp.geirhos@hs-kempten.de">Philipp Geirhos</a> senden.
+          Sollte Ihnen dieses Formaular nicht ausreichen, können Sie uns auch
+          eine E-Mail an
+          <a href="mailto:philipp.geirhos@hs-kempten.de">Philipp Geirhos</a>
+          senden.
         </p>
-        <label for="email">Email für Rückfragen (optional):</label>
-        <input type="email" name="email" />
+        <label for="email">Email für Rückfragen (benötigt):</label>
+        <input type="email" name="email" required />
 
         <label for="system">Betroffenes System:</label>
-        <input type="radio" name="system" value="AdLer Engine" />AdLer 3D-Umgebung<br />
-        <input type="radio" name="system" value="Autorentool" />Autorentool<br />
+        <input type="radio" name="system" value="AdLer Engine" />AdLer
+        3D-Umgebung<br />
+        <input
+          type="radio"
+          name="system"
+          value="Autorentool"
+        />Autorentool<br />
         <input type="radio" name="system" value="Moodle" />Moodle<br />
-        <input type="radio" name="system" value="Nicht_bekannt" checked />Nicht bekannt<br />
+        <input type="radio" name="system" value="Nicht_bekannt" checked />Nicht
+        bekannt<br />
         <br />
 
         <label for="description">Beschreibung des Fehlers:</label>
@@ -93,19 +104,26 @@
         <p>Liste der Schritte, die zum Fehler führen, falls bekannt.</p>
         <textarea name="steps" rows="4"></textarea>
 
-        <label for="expected">Erwartetes Verhalten der Software (optional):</label>
-        <p>Beschreiben Sie, wie die Software Ihrer Meinung nach hätte reagieren sollen.</p>
+        <label for="expected"
+          >Erwartetes Verhalten der Software (optional):</label
+        >
+        <p>
+          Beschreiben Sie, wie die Software Ihrer Meinung nach hätte reagieren
+          sollen.
+        </p>
         <textarea name="expected" rows="4"></textarea>
 
         <label for="used_system">Art des verwendeten Geräts (optional):</label>
         <p>
-          Geben Sie das Gerät an, auf dem der Fehler aufgetreten ist (z.B. Laptop, Tablet). Auch den Verwendeten Browser
-          können Sie hier angeben.
+          Geben Sie das Gerät an, auf dem der Fehler aufgetreten ist (z.B.
+          Laptop, Tablet). Auch den Verwendeten Browser können Sie hier angeben.
         </p>
         <input type="text" name="used_system" />
 
         <label for="used_os">Verwendetes Betriebssystem:</label>
-        <p>Geben Sie das Betriebssystem an, auf dem der Fehler aufgetreten ist.</p>
+        <p>
+          Geben Sie das Betriebssystem an, auf dem der Fehler aufgetreten ist.
+        </p>
         <select name="used_os">
           <option value="Windows">Windows</option>
           <option value="MacOS">MacOS</option>
@@ -119,28 +137,45 @@
         <p>Wurde der Fehler mit einem Touchscreen-Gerät produziert?</p>
         <input type="radio" name="touch" value="Ja" />Ja<br />
         <input type="radio" name="touch" value="Nein" />Nein<br />
-        <input type="radio" name="touch" value="Nicht_bekannt" checked />Nicht bekannt<br />
+        <input type="radio" name="touch" value="Nicht_bekannt" checked />Nicht
+        bekannt<br />
         <br />
 
         <!-- Art der Internetverbindung radio -->
         <label for="connection">Art der Internetverbindung:</label>
-        <p>Wählen Sie die Art der Internetverbindung aus, die zum Zeitpunkt des Fehlers verwendet wurde.</p>
+        <p>
+          Wählen Sie die Art der Internetverbindung aus, die zum Zeitpunkt des
+          Fehlers verwendet wurde.
+        </p>
         <input type="radio" name="connection" value="LAN" />LAN<br />
         <input type="radio" name="connection" value="WLAN" />WLAN<br />
-        <input type="radio" name="connection" value="Mobilfunk" />Mobilfunk<br />
-        <input type="radio" name="connection" value="Nicht_bekannt" checked />Nicht bekannt<br />
+        <input
+          type="radio"
+          name="connection"
+          value="Mobilfunk"
+        />Mobilfunk<br />
+        <input
+          type="radio"
+          name="connection"
+          value="Nicht_bekannt"
+          checked
+        />Nicht bekannt<br />
         <br />
 
         <label for="info">Weiterführende Informationen (optional):</label>
         <p>
-          Geben Sie hier weitere Informationen oder Anmerkungen zum Fehler an. Wenn sie eine Antwort erwarten, geben Sie
-          das bitte hier an.
+          Geben Sie hier weitere Informationen oder Anmerkungen zum Fehler an.
+          Wenn sie eine Antwort erwarten, geben Sie das bitte hier an.
         </p>
         <textarea name="info" rows="4"></textarea>
 
         <input type="submit" value="Senden" />
       </form>
-      <img class="backgroundLogo" src="assets/adlerlogo.png" alt="Projekt AdLer Logo" />
+      <img
+        class="backgroundLogo"
+        src="assets/adlerlogo.png"
+        alt="Projekt AdLer Logo"
+      />
     </article>
   </body>
 </html>
