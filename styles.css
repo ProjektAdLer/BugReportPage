@@ -89,7 +89,8 @@ input[type='submit'] {
 }
 
 input[type='submit']:hover {
-  background-color: #e5bd73;
+  background-color: var(--adlerlightgold);
+  color: var(--adlerdarkblue);
 }
 
 input[type='submit']:active {
@@ -114,7 +115,7 @@ p {
   .backgroundLogo {
     scale: 0.5;
     position: fixed;
-    top: 5%;
+    top: 0;
     left: 0;
     bottom: auto !important;
     right: auto !important;
