@@ -4,6 +4,7 @@
     <title>Bug Report</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" type="image/png" href="assets/adlerlogo.png">
     <script>
       function showAlertWindow(message) {
         const alertWindow = document.createElement('div');
@@ -57,86 +58,89 @@
     </script>
   </head>
   <body>
-    <h1>AdLer - Bug Report</h1>
+    <article>
+      <h1>AdLer - Bug Report</h1>
 
-    <form id="bugReportForm" onsubmit="submitBugReport(event)">
-      <p>
-        Bitte nutzen Sie dieses Formular um uns über Fehler in der AdLer 3D-Umgebung, dem Autorentool oder Moodle zu
-        informieren.
+      <form id="bugReportForm" onsubmit="submitBugReport(event)">
+        <p>
+          Bitte nutzen Sie dieses Formular um uns über Fehler in der AdLer 3D-Umgebung, dem Autorentool oder Moodle zu
+          informieren.
+          <br />
+          <br />
+          Wir werden uns dann schnellstmöglich um das Problem kümmern. Sollten Sie explizit eine Antwort erwarten, sobald
+          der Fehler behoben wurde, geben Sie dies bitte im Feld "Weiterführende Informationen" an und hinterlassen Sie
+          Ihre E-Mail-Adresse.
+          <br />
+          <br />
+          Sollte Ihnen dieses Formaular nicht ausreichen, können Sie uns auch eine E-Mail an
+          <a href="mailto:philipp.geirhos@hs-kempten.de">Philipp Geirhos</a> senden.
+        </p>
+        <label for="email">Email für Rückfragen (optional):</label>
+        <input type="email" name="email" />
+
+        <label for="system">Betroffenes System:</label>
+        <input type="radio" name="system" value="AdLer Engine" />AdLer 3D-Umgebung<br />
+        <input type="radio" name="system" value="Autorentool" />Autorentool<br />
+        <input type="radio" name="system" value="Moodle" />Moodle<br />
+        <input type="radio" name="system" value="Nicht_bekannt" checked />Nicht bekannt<br />
         <br />
+
+        <label for="description">Beschreibung des Fehlers:</label>
+        <p>Beschreiben Sie den aufgetretenen Fehler so genau wie möglich.</p>
+        <textarea name="description" rows="4" required></textarea>
+
+        <label for="steps">Schritte zur Fehlerwiederholung (optional):</label>
+        <p>Liste der Schritte, die zum Fehler führen, falls bekannt.</p>
+        <textarea name="steps" rows="4"></textarea>
+
+        <label for="expected">Erwartetes Verhalten der Software (optional):</label>
+        <p>Beschreiben Sie, wie die Software Ihrer Meinung nach hätte reagieren sollen.</p>
+        <textarea name="expected" rows="4"></textarea>
+
+        <label for="used_system">Art des verwendeten Geräts (optional):</label>
+        <p>
+          Geben Sie das Gerät an, auf dem der Fehler aufgetreten ist (z.B. Laptop, Tablet). Auch den Verwendeten Browser
+          können Sie hier angeben.
+        </p>
+        <input type="text" name="used_system" />
+
+        <label for="used_os">Verwendetes Betriebssystem:</label>
+        <p>Geben Sie das Betriebssystem an, auf dem der Fehler aufgetreten ist.</p>
+        <select name="used_os">
+          <option value="Windows">Windows</option>
+          <option value="MacOS">MacOS</option>
+          <option value="Linux">Linux</option>
+          <option value="Android">Android</option>
+          <option value="iOS">iOS</option>
+          <option value="Nicht_bekannt" selected>Nicht bekannt</option>
+        </select>
+
+        <label for="touch">Wurde Touch-Eingabe verwendet?</label>
+        <p>Wurde der Fehler mit einem Touchscreen-Gerät produziert?</p>
+        <input type="radio" name="touch" value="Ja" />Ja<br />
+        <input type="radio" name="touch" value="Nein" />Nein<br />
+        <input type="radio" name="touch" value="Nicht_bekannt" checked />Nicht bekannt<br />
         <br />
-        Wir werden uns dann schnellstmöglich um das Problem kümmern. Sollten Sie explizit eine Antwort erwarten, sobald
-        der Fehler behoben wurde, geben Sie dies bitte im Feld "Weiterführende Informationen" an und hinterlassen Sie
-        Ihre E-Mail-Adresse.
+
+        <!-- Art der Internetverbindung radio -->
+        <label for="connection">Art der Internetverbindung:</label>
+        <p>Wählen Sie die Art der Internetverbindung aus, die zum Zeitpunkt des Fehlers verwendet wurde.</p>
+        <input type="radio" name="connection" value="LAN" />LAN<br />
+        <input type="radio" name="connection" value="WLAN" />WLAN<br />
+        <input type="radio" name="connection" value="Mobilfunk" />Mobilfunk<br />
+        <input type="radio" name="connection" value="Nicht_bekannt" checked />Nicht bekannt<br />
         <br />
-        <br />
-        Sollte Ihnen dieses Formaular nicht ausreichen, können Sie uns auch eine E-Mail an
-        <a href="mailto:philipp.geirhos@hs-kempten.de">Philipp Geirhos</a> senden.
-      </p>
-      <label for="email">Email für Rückfragen (optional):</label>
-      <input type="email" name="email" />
 
-      <label for="system">Betroffenes System:</label>
-      <input type="radio" name="system" value="AdLer Engine" />AdLer 3D-Umgebung<br />
-      <input type="radio" name="system" value="Autorentool" />Autorentool<br />
-      <input type="radio" name="system" value="Moodle" />Moodle<br />
-      <input type="radio" name="system" value="Nicht_bekannt" checked />Nicht bekannt<br />
-      <br />
+        <label for="info">Weiterführende Informationen (optional):</label>
+        <p>
+          Geben Sie hier weitere Informationen oder Anmerkungen zum Fehler an. Wenn sie eine Antwort erwarten, geben Sie
+          das bitte hier an.
+        </p>
+        <textarea name="info" rows="4"></textarea>
 
-      <label for="description">Beschreibung des Fehlers:</label>
-      <p>Beschreiben Sie den aufgetretenen Fehler so genau wie möglich.</p>
-      <textarea name="description" rows="4" required></textarea>
-
-      <label for="steps">Schritte zur Fehlerwiederholung (optional):</label>
-      <p>Liste der Schritte, die zum Fehler führen, falls bekannt.</p>
-      <textarea name="steps" rows="4"></textarea>
-
-      <label for="expected">Erwartetes Verhalten der Software (optional):</label>
-      <p>Beschreiben Sie, wie die Software Ihrer Meinung nach hätte reagieren sollen.</p>
-      <textarea name="expected" rows="4"></textarea>
-
-      <label for="used_system">Art des verwendeten Geräts (optional):</label>
-      <p>
-        Geben Sie das Gerät an, auf dem der Fehler aufgetreten ist (z.B. Laptop, Tablet). Auch den Verwendeten Browser
-        können Sie hier angeben.
-      </p>
-      <input type="text" name="used_system" />
-
-      <label for="used_os">Verwendetes Betriebssystem:</label>
-      <p>Geben Sie das Betriebssystem an, auf dem der Fehler aufgetreten ist.</p>
-      <select name="used_os">
-        <option value="Windows">Windows</option>
-        <option value="MacOS">MacOS</option>
-        <option value="Linux">Linux</option>
-        <option value="Android">Android</option>
-        <option value="iOS">iOS</option>
-        <option value="Nicht_bekannt" selected>Nicht bekannt</option>
-      </select>
-
-      <label for="touch">Wurde Touch-Eingabe verwendet?</label>
-      <p>Wurde der Fehler mit einem Touchscreen-Gerät produziert?</p>
-      <input type="radio" name="touch" value="Ja" />Ja<br />
-      <input type="radio" name="touch" value="Nein" />Nein<br />
-      <input type="radio" name="touch" value="Nicht_bekannt" checked />Nicht bekannt<br />
-      <br />
-
-      <!-- Art der Internetverbindung radio -->
-      <label for="connection">Art der Internetverbindung:</label>
-      <p>Wählen Sie die Art der Internetverbindung aus, die zum Zeitpunkt des Fehlers verwendet wurde.</p>
-      <input type="radio" name="connection" value="LAN" />LAN<br />
-      <input type="radio" name="connection" value="WLAN" />WLAN<br />
-      <input type="radio" name="connection" value="Mobilfunk" />Mobilfunk<br />
-      <input type="radio" name="connection" value="Nicht_bekannt" checked />Nicht bekannt<br />
-      <br />
-
-      <label for="info">Weiterführende Informationen (optional):</label>
-      <p>
-        Geben Sie hier weitere Informationen oder Anmerkungen zum Fehler an. Wenn sie eine Antwort erwarten, geben Sie
-        das bitte hier an.
-      </p>
-      <textarea name="info" rows="4"></textarea>
-
-      <input type="submit" value="Send" />
-    </form>
+        <input type="submit" value="Send" />
+      </form>
+      <img class="backgroundLogo" src="assets/adlerlogo.png" alt="Projekt AdLer Logo" />
+    </article>
   </body>
 </html>
