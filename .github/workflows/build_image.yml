@@ -33,5 +33,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/bugreportpage:latest
+          tags: ${{ env.REGISTRY }}/projektadler/bugreportpage:latest
           file: ./Dockerfile
